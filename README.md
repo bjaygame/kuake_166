@@ -5,7 +5,7 @@
 抓包流程：
 【手机端】
 
-1. 打开stream抓包工具，手机端访问签到页
+1. 打开[reqable](https://reqable.com/zh-CN/)抓包工具，手机端访问签到页。
 2. 搜索找到域名 `https://drive-m.quark.cn/1/clouddrive/capacity/growth/info` 的请求信息
    ![抓包](docs/抓包.jpg)
 3. 复制url后面的参数: kps sign vcode pr fr并设置到环境变量中
