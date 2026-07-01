@@ -86,7 +86,7 @@ def user_info():
     """
     url = "https://drive-m.quark.cn/1/clouddrive/capacity/growth/info"
     querystring = {
-        "pr": "qk_clouddrive",
+        "pr": "ucpro",
         "fr": "iphone",
         "kps": kps,
         "sign": sign,
@@ -122,7 +122,7 @@ def checkin():
     """
     url = "https://drive-m.quark.cn/1/clouddrive/capacity/growth/sign"
     querystring = {
-        "pr": "qk_clouddrive",
+        "pr": "ucpro",
         "fr": "iphone",
         "kps": kps,
         "sign": sign,
