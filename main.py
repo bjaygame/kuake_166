@@ -41,7 +41,7 @@ def send_to_server(title, desp):
         "desp": desp
     }
     try:
-        response = requests.post(url, data=data)
+        response = httpx.post(url, data=data)
         if response.status_code == 200:
             print("Server酱推送成功")
         else:
