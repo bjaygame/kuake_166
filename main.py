@@ -120,9 +120,6 @@ def user_info():
         logger.warning(content["message"])
     else:
         data = content["data"]
-        super_vip_exp_at = datetime.fromtimestamp(
-            data["super_vip_exp_at"] / 1000
-        ).strftime("%Y-%m-%d %H:%M:%S")
         cap_sign = data["cap_sign"]
         notify_message = ""
         if cap_sign["sign_daily"]:
