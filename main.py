@@ -128,8 +128,7 @@ def user_info():
         if cap_sign["sign_daily"]:
             notify_message += (f"今日已签到，获得容量: {human_unit(cap_sign['sign_daily_reward'])},"
                                f" 签到进度: {cap_sign['sign_progress']}\n")
-        notify_message += (f"会员类型：{data['member_type']}, 过期时间：{super_vip_exp_at}, 总计容量："
-                           f"{human_unit(data['total_capacity'])}, 使用容量：{human_unit(data['use_capacity'])}, "
+        notify_message += (f"{human_unit(data['total_capacity'])}, 使用容量：{human_unit(data['use_capacity'])}, "
                            f"使用百分比：{data['use_capacity'] / data['total_capacity'] * 100:.2f}%")
         logger.info(notify_message)
         send_to_server("夸克网盘签到", notify_message)
