@@ -132,7 +132,7 @@ def user_info():
         cap_composition = data["cap_composition"]
         if "sign_reward" in cap_composition:
                 notify_message += f"{human_unit(cap_composition['sign_reward'])}\n"
-            else:
+        else:
                 notify_message += "0 MB\n"
         logger.info(notify_message)
         send_to_server("夸克网盘签到", notify_message)
