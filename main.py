@@ -128,7 +128,7 @@ def user_info():
         notify_message += (f"💾 网盘总容量：{human_unit(data['total_capacity'])}, "
                            f"使用容量：{human_unit(data['use_capacity'])}, "
                            f"使用百分比：{data['use_capacity'] / data['total_capacity'] * 100:.2f}%, "
-                           f"签到累计容量："))
+                           f"签到累计容量：")
         cap_composition = data["cap_composition"]
         if "sign_reward" in cap_composition:
                 notify_message += f"{human_unit(cap_composition['sign_reward'])}\n"
