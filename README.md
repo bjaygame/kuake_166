@@ -25,7 +25,7 @@
 | QUARK_PR  | 抓包参数的pr(ucpro或qk_clouddrive，夸克/夸克网盘) |
 | QUARK_FR |  抓包参数的fr(android或iphone)  |
 
-注：QUARK_PR和QUARK_FR配置在variables中；另外variables还添加了QUARK_USER(随便填写名字，用以区分账号)。
+注：**QUARK_PR和QUARK_FR配置在variables中**；另外variables还添加了QUARK_USER(随便填写名字，用以区分账号)。
 其他都为secrets。
    
 ### 可选配置
