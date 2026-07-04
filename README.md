@@ -5,7 +5,7 @@
 抓包流程：
 【手机端】
 
-1. 打开[reqable](https://reqable.com/zh-CN/)抓包工具，手机端访问签到页。
+1. 打开[reqable](https://reqable.com/zh-CN/)抓包工具(苹果用stream)，手机端访问签到页。
 2. 搜索找到域名 `https://drive-m.quark.cn/1/clouddrive/capacity/growth/info` 的请求信息
    ![抓包](docs/抓包.jpg)
 3. 复制url后面的参数: kps sign vcode pr fr并设置到环境变量中
@@ -24,7 +24,9 @@
 | QUARK_VCODE |  抓包参数的vcode  |
 | QUARK_PR  | 抓包参数的pr(ucpro或qk_clouddrive，夸克/夸克网盘) |
 | QUARK_FR |  抓包参数的fr(android或iphone)  |
-
+注：QUARK_PR和QUARK_FR配置在variables中；另外variables还添加了QUARK_USER(随便填写名字，用以区分账号)。
+其他都为secrets。
+   
 ### 可选配置
 #### 1.邮箱通知
 > qq邮箱可访问网页的，然后点击头像，进入账号与安全，如图获取授权码即密码
