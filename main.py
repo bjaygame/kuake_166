@@ -13,6 +13,7 @@ sign = os.getenv("QUARK_SIGN")
 vcode = os.getenv("QUARK_VCODE")
 pr = os.getenv("QUARK_PR", default="ucpro")
 fr = os.getenv("QUARK_FR", default="iphone")
+user = os.getenv("QUARK_USER", default="")
 
 if kps is None or sign is None or vcode is None:
     logger.error("请设置 QUARK_KPS 或者 QUARK_SIGN 或者 QUARK_VCODE")
@@ -122,6 +123,7 @@ def user_info():
         data = content["data"]
         cap_sign = data["cap_sign"]
         notify_message = ""
+        notify_message += f"🙍🏻‍♂️用户: {user}\n"
         if cap_sign["sign_daily"]:
             notify_message += (f"✅ 今日已签到，获得容量: {human_unit(cap_sign['sign_daily_reward'])},"
                                f" 连签进度: {cap_sign['sign_progress']}/{cap_sign['sign_target']}\n")
