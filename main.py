@@ -125,9 +125,9 @@ def user_info():
         notify_message = ""
         notify_message += f"🙍🏻‍♂️用户: {user}\n"
         if cap_sign["sign_daily"]:
-            notify_message += (f"✅ 今日签到+{human_unit(cap_sign['sign_daily_reward'])},"
-                               f" 连签进度: {cap_sign['sign_progress']}/{cap_sign['sign_target']}\n")
-        notify_message += (f"💾 总容量：{human_unit(data['total_capacity'])}, "
+            notify_message += (f"✅今日签到+{human_unit(cap_sign['sign_daily_reward'])},"
+                               f"连签进度: {cap_sign['sign_progress']}/{cap_sign['sign_target']}\n")
+        notify_message += (f"💾总容量：{human_unit(data['total_capacity'])}, "
                            f"使用：{human_unit(data['use_capacity'])}, "
                            f"占比：{data['use_capacity'] / data['total_capacity'] * 100:.2f}%, "
                            f"累计+")
