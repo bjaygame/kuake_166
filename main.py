@@ -3,7 +3,7 @@ from datetime import datetime
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pprint import pprint
-import httpx
+import requests
 import os
 
 # 夸克
@@ -41,7 +41,7 @@ def send_to_server(title, desp):
         "desp": desp
     }
     try:
-        response = httpx.post(url, data=data)
+        response = requests.post(url, data=data)
         if response.status_code == 200:
             print("Server酱推送成功")
         else:
@@ -58,7 +58,7 @@ def query_balance():
         "moduleCode": "1f3563d38896438db994f118d4ff53cb",
         "kps": kps,
     }
-    response = httpx.get(url=url, params=querystring)
+    response = requests.get(url=url, params=querystring)
     response.raise_for_status()
     pprint(response.json())
 
@@ -113,7 +113,7 @@ def user_info():
         "sign": sign,
         "vcode": vcode,
     }
-    response = httpx.get(url=url, params=querystring)
+    response = requests.get(url=url, params=querystring)
     response.raise_for_status()
     content = response.json()
     if content["code"] != 0:
@@ -154,7 +154,7 @@ def checkin():
         "sign": sign,
         "vcode": vcode,
     }
-    response = httpx.post(url=url, json={"sign_cyclic": True}, params=querystring)
+    response = requests.post(url=url, json={"sign_cyclic": True}, params=querystring)
     if response.status_code == 200:
         if response.json()["code"] != 0:
             print(response.json()["message"])
