@@ -3,7 +3,6 @@ from datetime import datetime
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from pprint import pprint
-from loguru import logger
 import httpx
 import os
 
@@ -16,7 +15,7 @@ fr = os.getenv("QUARK_FR", default="iphone")
 user = os.getenv("QUARK_USER", default="")
 
 if kps is None or sign is None or vcode is None:
-    logger.error("请设置 QUARK_KPS 或者 QUARK_SIGN 或者 QUARK_VCODE")
+    print("请设置 QUARK_KPS 或者 QUARK_SIGN 或者 QUARK_VCODE")
     raise ValueError("请设置 QUARK_KPS 或者 QUARK_SIGN 或者 QUARK_VCODE")
 
 # 邮箱通知
@@ -118,7 +117,7 @@ def user_info():
     response.raise_for_status()
     content = response.json()
     if content["code"] != 0:
-        logger.warning(content["message"])
+        print(content["message"])
     else:
         data = content["data"]
         cap_sign = data["cap_sign"]
@@ -136,7 +135,7 @@ def user_info():
                 notify_message += f"{human_unit(cap_composition['sign_reward'])}\n"
         else:
                 notify_message += "0 MB\n"
-        logger.info(notify_message)
+        print(notify_message)
         send_to_server("夸克网盘签到", notify_message)
         if config_is_ok:
             send_email(notify_message)
@@ -158,13 +157,13 @@ def checkin():
     response = httpx.post(url=url, json={"sign_cyclic": True}, params=querystring)
     if response.status_code == 200:
         if response.json()["code"] != 0:
-            logger.warning(response.json()["message"])
+            print(response.json()["message"])
         else:
-            logger.success(
+            print(
                 f"签到成功，获得容量: {human_unit(response.json()['data']['sign_daily_reward'])}"
             )
     else:
-        logger.warning(f"已经签到，请勿重复签到")
+        print(f"已经签到，请勿重复签到")
 
 
 if __name__ == "__main__":
